@@ -4,7 +4,7 @@
 
 Name:           %{?scl_prefix}%{pkg_name}
 Version:        19
-Release:        8.9%{?dist}
+Release:        8.10%{?dist}
 Summary:        Jetty parent POM file
 
 License:        ASL 2.0 or EPL
@@ -25,13 +25,13 @@ Jetty parent POM file
 
 %prep
 %setup -q -c -T -n %{pkg_name}-%{version}
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 cp -p %{SOURCE2} %{SOURCE3} .
 %{?scl:EOF}
 
 %install
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 # poms
 install -d -m 755 %{buildroot}%{_mavenpomdir}
@@ -46,6 +46,9 @@ install -pm 644 %{SOURCE0} \
 
 
 %changelog
+* Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 19-8.10
+- maven33 rebuild #2
+
 * Sat Jan 09 2016 Michal Srb <msrb@redhat.com> - 19-8.9
 - maven33 rebuild
 
