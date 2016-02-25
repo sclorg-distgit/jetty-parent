@@ -4,7 +4,7 @@
 
 Name:           %{?scl_prefix}%{pkg_name}
 Version:        19
-Release:        8.10%{?dist}
+Release:        8.11%{?dist}
 Summary:        Jetty parent POM file
 
 License:        ASL 2.0 or EPL
@@ -17,7 +17,7 @@ Source3:        http://www.apache.org/licenses/LICENSE-2.0.txt
 BuildArch:      noarch
 
 BuildRequires:  %{?scl_prefix_java_common}javapackages-tools
-BuildRequires:  %{?scl_prefix_java_common}maven-local
+BuildRequires:  %{?scl_prefix}maven-local
 
 
 %description
@@ -46,6 +46,9 @@ install -pm 644 %{SOURCE0} \
 
 
 %changelog
+* Mon Feb 08 2016 Michal Srb <msrb@redhat.com> - 19-8.11
+- Fix BR on maven-local & co.
+
 * Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 19-8.10
 - maven33 rebuild #2
 
